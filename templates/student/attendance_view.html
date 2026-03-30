@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Attendance View{% endblock %}
+{% block page_title %}My Attendance{% endblock %}
+{% block content %}
+<div class="card glass">
+  <p class="muted">Enter your student ID to view attendance records.</p>
+  <div class="toolbar">
+    <input id="studentAttendanceId" placeholder="Student ID" />
+    <button onclick="loadMyAttendance()">Load</button>
+  </div>
+  <div id="attendanceTable" class="mt-20"></div>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Student Dashboard{% endblock %}
+{% block page_title %}Student Dashboard{% endblock %}
+{% block content %}
+<div class="grid cards-2">
+  <div class="card glass"><h3>Welcome!</h3><p>Track videos, attendance and ask AI tutor.</p></div>
+  <div class="card glass"><h3>Today's Focus</h3><p>Revise one concept and solve 10 MCQs.</p></div>
+</div>
+<div class="card glass mt-20">
+  <h3>Latest Announcements</h3>
+  <ul>
+    {% for item in announcements %}
+      <li>{{ item.date }} - {{ item.message }}</li>
+    {% else %}
+      <li>No announcements yet.</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
