@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Study Chatbot{% endblock %}
+{% block page_title %}AI Study Chatbot{% endblock %}
+{% block content %}
+<div class="card glass chatbot-card">
+  <div id="chatWindow" class="chat-window"></div>
+  <div class="toolbar">
+    <input id="chatInput" placeholder="Ask concept doubts, exam prep, study tips..." />
+    <button onclick="sendChat()">Send</button>
+  </div>
+</div>
+{% endblock %}

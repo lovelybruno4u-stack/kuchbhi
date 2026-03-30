@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Videos{% endblock %}
+{% block page_title %}Daily Class Videos{% endblock %}
+{% block content %}
+<div class="card glass">
+  <form id="videoForm" class="inline-form">
+    <input type="date" name="date" required />
+    <input name="subject" placeholder="Subject" required />
+    <input name="drive_link" placeholder="Google Drive Link" required />
+    <button type="submit">Add Video</button>
+  </form>
+</div>
+<div class="card glass mt-20"><h3>Video Library</h3><div id="videoList"></div></div>
+{% endblock %}

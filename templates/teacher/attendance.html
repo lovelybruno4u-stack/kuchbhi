@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Attendance{% endblock %}
+{% block page_title %}Attendance System{% endblock %}
+{% block content %}
+<div class="card glass">
+  <h3>Mark Daily Attendance</h3>
+  <p class="muted">Select Present/Absent for each student and save to Google Sheets.</p>
+  <button onclick="loadAttendanceStudents()">Load Students</button>
+  <div id="attendanceList" class="mt-20"></div>
+  <button class="mt-20" onclick="saveAttendance()">Save Attendance</button>
+</div>
+{% endblock %}
