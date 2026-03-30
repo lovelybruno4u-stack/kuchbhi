@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}ASWATHAMA CLASSES{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="app-shell">
+    {% if current_role %}
+    <aside class="sidebar glass">
+      <div class="logo">ASWATHAMA</div>
+      <p class="subtitle">{{ current_role|title }} Portal</p>
+
+      {% if current_role == 'teacher' %}
+      <nav>
+        <a href="{{ url_for('teacher_dashboard') }}"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+        <a href="{{ url_for('teacher_students') }}"><i class="fa-solid fa-users"></i> Students</a>
+        <a href="{{ url_for('teacher_attendance') }}"><i class="fa-solid fa-calendar-check"></i> Attendance</a>
+        <a href="{{ url_for('teacher_videos') }}"><i class="fa-solid fa-video"></i> Videos</a>
+        <a href="{{ url_for('teacher_subjects') }}"><i class="fa-solid fa-book"></i> Subjects</a>
+        <a href="{{ url_for('teacher_announcements') }}"><i class="fa-solid fa-bullhorn"></i> Announcements</a>
+        <a href="{{ url_for('teacher_ai_tools') }}"><i class="fa-solid fa-robot"></i> AI Tools</a>
+      </nav>
+      {% else %}
+      <nav>
+        <a href="{{ url_for('student_dashboard') }}"><i class="fa-solid fa-house"></i> Dashboard</a>
+        <a href="{{ url_for('student_videos') }}"><i class="fa-solid fa-video"></i> My Videos</a>
+        <a href="{{ url_for('student_attendance') }}"><i class="fa-solid fa-calendar-check"></i> Attendance</a>
+        <a href="{{ url_for('student_chatbot') }}"><i class="fa-solid fa-comments"></i> Chatbot</a>
+        <a href="{{ url_for('student_announcements') }}"><i class="fa-solid fa-bullhorn"></i> Announcements</a>
+      </nav>
+      {% endif %}
+      <a class="logout-btn" href="{{ url_for('logout') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+    </aside>
+    {% endif %}
+
+    <main class="main-content">
+      {% if current_role %}
+      <header class="topbar glass">
+        <h1>{% block page_title %}Dashboard{% endblock %}</h1>
+        <div class="user-chip"><i class="fa-solid fa-user"></i> {{ current_user }}</div>
+      </header>
+      {% endif %}
+
+      <section class="content fade-in">
+        {% block content %}{% endblock %}
+      </section>
+    </main>
+  </div>
+  <div id="loader" class="loader-overlay hidden"><div class="loader"></div></div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

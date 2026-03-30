@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Subjects{% endblock %}
+{% block page_title %}Subjects{% endblock %}
+{% block content %}
+<div class="card glass">
+  <div class="inline-form">
+    <input id="subjectName" placeholder="Subject name" />
+    <button onclick="addSubject()">Add</button>
+  </div>
+  <div id="subjectList" class="mt-20"></div>
+</div>
+{% endblock %}
