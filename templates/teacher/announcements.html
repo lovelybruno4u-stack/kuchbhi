@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Announcements{% endblock %}
+{% block page_title %}Announcements{% endblock %}
+{% block content %}
+<div class="card glass">
+  <textarea id="announcementText" placeholder="Write announcement"></textarea>
+  <div class="toolbar mt-10">
+    <button onclick="generateAnnouncement()">Generate with AI</button>
+    <button onclick="saveAnnouncement()">Publish</button>
+  </div>
+</div>
+<div class="card glass mt-20"><h3>Published Announcements</h3><div id="announcementList"></div></div>
+{% endblock %}

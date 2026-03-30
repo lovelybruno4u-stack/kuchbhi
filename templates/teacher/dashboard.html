@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Teacher Dashboard{% endblock %}
+{% block page_title %}Teacher Dashboard{% endblock %}
+{% block content %}
+<div class="grid cards-4">
+  <div class="card glass"><h3>Total Students</h3><p class="metric">{{ total_students }}</p></div>
+  <div class="card glass"><h3>Today Attendance</h3><p class="metric">{{ today_attendance }}</p></div>
+  <div class="card glass"><h3>Quick Action</h3><p>Add students, attendance, and videos.</p></div>
+  <div class="card glass"><h3>AI Ready</h3><p>Use AI tools for insights and content.</p></div>
+</div>
+<div class="card glass mt-20">
+  <h3>Recent Activity</h3>
+  <ul>
+    {% for item in recent_activity %}
+      <li>{{ item.date }} - {{ item.message }}</li>
+    {% else %}
+      <li>No recent activity yet.</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

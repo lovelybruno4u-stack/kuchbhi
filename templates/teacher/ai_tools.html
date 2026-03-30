@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}AI Tools{% endblock %}
+{% block page_title %}AI Tools{% endblock %}
+{% block content %}
+<div class="grid cards-2">
+  <div class="card glass">
+    <h3>Attendance Analysis</h3>
+    <button onclick="aiAttendanceAnalysis()">Analyze</button>
+    <pre id="attendanceAnalysis"></pre>
+  </div>
+  <div class="card glass">
+    <h3>Video Summary</h3>
+    <input id="videoTopic" placeholder="Video topic" />
+    <button onclick="aiVideoSummary()">Generate</button>
+    <pre id="videoSummary"></pre>
+  </div>
+  <div class="card glass">
+    <h3>Quiz Generator</h3>
+    <input id="quizSubject" placeholder="Subject" />
+    <input id="quizTopic" placeholder="Topic" />
+    <button onclick="aiQuizGenerator()">Generate MCQs</button>
+    <pre id="quizOutput"></pre>
+  </div>
+  <div class="card glass">
+    <h3>Doubt Solver</h3>
+    <input id="doubtQuestion" placeholder="Ask a question" />
+    <button onclick="aiDoubtSolver()">Solve</button>
+    <pre id="doubtOutput"></pre>
+  </div>
+</div>
+{% endblock %}
