@@ -3,5 +3,3 @@ __pycache__/
 *.pyc
 .env
 service_account.json
-
-generated_sheet_id.txt

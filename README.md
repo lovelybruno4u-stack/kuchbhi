@@ -61,11 +61,9 @@ Create a spreadsheet with 5 worksheets and exact names:
 5. `announcements` with columns:
    - date, message
 
-Copy the spreadsheet ID from URL (optional if you want to use an existing sheet):
+Copy the spreadsheet ID from URL:
 
 `https://docs.google.com/spreadsheets/d/<SHEET_ID>/edit`
-
-If `GOOGLE_SHEET_ID` is empty, the app will automatically create a new spreadsheet and store the generated ID in `generated_sheet_id.txt`.
 
 ### 2) Enable Google Sheets API
 
@@ -79,7 +77,6 @@ If `GOOGLE_SHEET_ID` is empty, the app will automatically create a new spreadshe
 
 - Put the key file in project root, for example:
   - `/workspace/kuchbhi/service_account.json`
-- Ensure this JSON key belongs to the service account that has Editor access to your sheet.
 
 ### 4) Place OpenAI API key
 
@@ -88,11 +85,7 @@ Create a `.env` file:
 ```env
 FLASK_SECRET_KEY=replace-with-strong-secret
 GOOGLE_CREDENTIALS_FILE=service_account.json
-# Optional fallback if file path is not used:
-# GOOGLE_SERVICE_ACCOUNT_JSON={"type":"service_account",...}
-GOOGLE_SHEET_ID=your_google_sheet_id   # optional; leave empty to auto-create
-GOOGLE_SHEET_NAME=ASWATHAMA_CLASSES_DB
-GOOGLE_OWNER_EMAIL=lovelyaayush4u@gmail.com
+GOOGLE_SHEET_ID=your_google_sheet_id
 OPENAI_API_KEY=your_openai_api_key
 OPENAI_MODEL=gpt-4o-mini
 
@@ -123,7 +116,6 @@ Open: `http://127.0.0.1:5000`
    - `gunicorn app:app`
 5. Add environment variables from `.env` in Render dashboard.
 6. Upload service account JSON securely (or mount as secret file) and set `GOOGLE_CREDENTIALS_FILE` path.
-7. Set `GOOGLE_OWNER_EMAIL` so the created sheet is automatically shared to your account.
 
 ## AI Prompt Templates Used in Code
 

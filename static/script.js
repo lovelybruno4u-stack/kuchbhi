@@ -22,15 +22,7 @@ async function loadStudents() {
   if (!table) return;
   table.innerHTML = '<tr><th>ID</th><th>Name</th><th>Class</th><th>Roll</th><th>Phone</th><th>Email</th><th>Parent</th><th>Actions</th></tr>' +
     rows.map(s => `<tr><td>${s.id||''}</td><td>${s.name||''}</td><td>${s.class||''}</td><td>${s.roll||''}</td><td>${s.phone||''}</td><td>${s.email||''}</td><td>${s.parent||''}</td>
-      <td><button onclick="editStudent('${s.id}')">Edit</button> <button onclick="deleteStudent('${s.id}')">Delete</button></td></tr>`).join('');
-}
-
-
-async function editStudent(id) {
-  const name = prompt('New name:');
-  if (!name) return;
-  await api(`/api/students/${id}`, 'PUT', { name });
-  loadStudents();
+      <td><button onclick="deleteStudent('${s.id}')">Delete</button></td></tr>`).join('');
 }
 
 async function deleteStudent(id) { await api(`/api/students/${id}`, 'DELETE'); loadStudents(); }
